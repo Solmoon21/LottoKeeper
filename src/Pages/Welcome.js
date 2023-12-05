@@ -6,12 +6,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Welcome.css';
 
 function Welcome() {
-    var loadedData = JSON.parse( localStorage.getItem("GameData") ) ;
-    var firstTime = loadedData == null;
-
+   
+    const [loadedData, setLoadedData] = useState( JSON.parse( localStorage.getItem("GameData") ) )
     const [PlayerName, setPlayerName] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+    
+    var firstTime = loadedData == null;
 
         useEffect(
             () => {
@@ -25,12 +26,13 @@ function Welcome() {
                 , 3_000)
             }
 
-        , [loadedData]);
+        , [loadedData,PlayerName,navigate,location,firstTime]);
 
 
         const Continue = () => {
             NewGameData.Player.name = PlayerName;
             localStorage.setItem("GameData", JSON.stringify(NewGameData));
+            setLoadedData( NewGameData );
             navigate('/welcome', {
                 state : {
                     Mode : location.state.Mode
