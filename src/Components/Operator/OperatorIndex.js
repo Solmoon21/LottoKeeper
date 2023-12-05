@@ -69,7 +69,7 @@ function History() {
     const [sortCol, setSortCol] = useState('default');
 
     const sortVia = (col) => {
-        if(col == 'Match'){
+        if(col === 'Match'){
             setData(
                 [...data].sort(
                     (a,b) => {
@@ -81,7 +81,7 @@ function History() {
             )
             setSortCol('Number of Matches');
         }
-        else if(col == 'Prize'){
+        else if(col === 'Prize'){
             setData(
                 [...data].sort(
                     (a,b) => {
@@ -215,10 +215,10 @@ function TrialOperator() {
     const nextRound = () => {
         setNumberOfGames(prev => prev - 1);
         Manager.CurrentGameState = GameStates.PLAYING;
-        if(NumberOfGames - 1 == 0){
+        if(NumberOfGames - 1 === 0){
             Manager.CurrentGameState = GameStates.FINISH;
         }
-        if(NumberOfGames == 0) { Manager.CurrentGameState = GameStates.LOBBY;  }
+        if(NumberOfGames === 0) { Manager.CurrentGameState = GameStates.LOBBY;  }
 
     }
 
@@ -227,7 +227,7 @@ function TrialOperator() {
     return (
         <div className='parent'>
             
-            {Manager.CurrentGameState == GameStates.LOBBY &&
+            {Manager.CurrentGameState === GameStates.LOBBY &&
                 <div className='childP'>
                     <h1> Playing as Admin </h1>
                     <input ref={inputBoxRef} type='number' placeholder='Number of Games' onChange={e => setNumberOfGames( Number(e.target.value)) } />
@@ -239,13 +239,13 @@ function TrialOperator() {
                 </div>    
             }
             
-            {Manager.CurrentGameState == GameStates.PLAYING && NumberOfGames > 0 &&
+            {Manager.CurrentGameState === GameStates.PLAYING && NumberOfGames > 0 &&
                 <div>
                     <button onClick={StartRound}>Start Round {GeneratedNumbers.length-NumberOfGames+1} </button>
                 </div>
             }
 
-            {Manager.CurrentGameState == GameStates.FINISH && NumberOfGames > 0 &&
+            {Manager.CurrentGameState === GameStates.FINISH && NumberOfGames > 0 &&
                 <div className='childO'>
                     <h2>Generated Numbers</h2>
                     <div> { GeneratedNumbers[ GeneratedNumbers.length - NumberOfGames ].toString() } </div>
@@ -259,7 +259,7 @@ function TrialOperator() {
                 </div>
             }
 
-            {Manager.CurrentGameState == GameStates.FINISH && NumberOfGames == 0 &&
+            {Manager.CurrentGameState === GameStates.FINISH && NumberOfGames === 0 &&
                 <div className='childP'>
                     <Report/>
                     <button onClick={nextRound}>Continue</button>

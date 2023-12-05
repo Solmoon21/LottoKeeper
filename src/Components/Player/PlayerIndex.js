@@ -31,7 +31,7 @@ function PlayerIndex() {
 
     const StartRound = () => {
 
-        if(numberOfGames == 0){
+        if(numberOfGames === 0){
             Manager.save();
             Manager.CurrentGameState = GameStates.LOBBY;
             setView(false);
@@ -129,7 +129,7 @@ function PlayerIndex() {
 
     return (
         <div className='parent' >
-            {Manager.CurrentGameState == GameStates.LOBBY &&
+            {Manager.CurrentGameState === GameStates.LOBBY &&
                 <div>
                     <div className='childP'>
                         <h1>Username : {Manager.GameData.Player.name}</h1>
@@ -170,7 +170,7 @@ function PlayerIndex() {
                     
                 </div>
             }
-            {Manager.CurrentGameState == GameStates.PLAYING && numberOfGames > 0 &&
+            {Manager.CurrentGameState === GameStates.PLAYING && numberOfGames > 0 &&
                 <div className='childP'>
                     <h2>Pick Your Numbers</h2>
                     {[0,1,2,3,4].map( 
@@ -183,7 +183,7 @@ function PlayerIndex() {
                     <button onClick={FinishRound}>Finish</button>
                 </div>
             }
-            {Manager.CurrentGameState == GameStates.FINISH && 
+            {Manager.CurrentGameState === GameStates.FINISH && 
                 <div className='childP'>
                     <h1>Your Guess : {guesses.toString()}</h1>
                     <h1>Actual : {generatedNumbers.toString()}</h1>
