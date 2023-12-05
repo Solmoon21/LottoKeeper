@@ -1,0 +1,60 @@
+.parent {
+    background: #023047;
+    height: fit-content;
+    width: 1000px;
+    position: relative;
+    display:contents;
+}
+  
+.childP {
+    
+    background: #ffb703;
+    color: #023047;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.childP > button {
+    width: 250px;
+    margin-right: 0;
+}   
+
+.childP > input {
+    width: 300px;
+    height: 25px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+@keyframes shake {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(10px) }
+    50% { transform: translateX(-10px) }
+    75% { transform: translateX(10px) }
+    100% { transform: translateX(0) }
+}
+
+.error {
+    animation: shake 0.5s infinite; 
+    background-color: rgb(226, 54, 54);
+}
+
+table {
+    background-color: rgb(255, 248, 248);
+    margin: 20px 50px;
+}
+
+th { 
+    text-align: center;
+    border: 1.5px solid black;
+    width: 150px;
+}
+
+td { 
+  text-align: right;
+  border: 1.5px solid black;
+}

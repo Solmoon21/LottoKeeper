@@ -1,0 +1,46 @@
+.Welcome-Box {
+    color: brown;
+    border: 5px solid black;
+    transform: translate(-50%, 50%);
+    top: 50%;
+    left: 50%;
+}
+
+div {
+    align-items: center;
+    justify-content: center;
+}
+
+.parent {
+    display: contents;
+}
+
+h1 {
+    text-align: center;
+}
+
+.child {
+    background: #ffb703;
+    color: #023047;
+    height: 90%;
+    width: 950px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+
+}
+
+
+.child > button {
+    width: 250px;
+    margin-right: 0;
+}   
+
+.child > input {
+    width: 300px;
+    height: 25px;
+    font-size: 16px;
+}

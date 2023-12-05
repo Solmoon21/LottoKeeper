@@ -1,0 +1,12 @@
+.childO {
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.childP > div {
+    display: contents;
+}
